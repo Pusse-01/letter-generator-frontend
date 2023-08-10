@@ -45,13 +45,16 @@ const Form = ({ setLetter }) => {
                 // Letter generation succeeded
                 setLetter(data.generated_letter);
                 setDialogMessage('Letter generated successfully');
+                setTimeout(() => setDialogMessage(''), 3000);
             } else {
                 // Letter generation failed
                 setDialogMessage('Letter generation failed !');
+                setTimeout(() => setDialogMessage(''), 3000);
             }
         } catch (error) {
             console.error('Error generating letter:', error);
             setDialogMessage('An error occurred while generating the letter');
+            setTimeout(() => setDialogMessage(''), 3000);
         } finally {
             setIsLoading(false);
             // Delay closing the dialog to make sure the user sees the final message

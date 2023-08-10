@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -10,6 +10,12 @@ const Letter = ({ letter }) => {
     const user = getUserDataFromLocalStorage();
     const [statusMessage, setStatusMessage] = useState('');
     const [text, setText] = useState(letter)
+    console.log(text)
+    useEffect(() => {
+        setText(letter);
+        console.log(letter);
+        console.log(text)
+    }, [letter]);
 
     const handleFormat = (format) => {
         document.execCommand(format, false, null);
@@ -51,7 +57,7 @@ const Letter = ({ letter }) => {
         console.log(user)
         try {
             const userId = user._id // Replace with your local storage key
-            const response = await fetch(`${API_BASE_URL}/save`, {
+            const response = await fetch(`${API_BASE_URL}/save/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,32 +89,7 @@ const Letter = ({ letter }) => {
         <div className="p-4">
             {letter ? (
                 <div>
-                    {/* <div className="flex space-x-2 mb-2">
-                        <button
-                            onClick={() => handleFormat('bold')}
-                            className="text-xl"
-                        >
-                            <MdFormatBold />
-                        </button>
-                        <button
-                            onClick={() => handleFormat('italic')}
-                            className="text-xl"
-                        >
-                            <MdFormatItalic />
-                        </button>
-                        <button
-                            onClick={() => handleFormat('insertunorderedlist')}
-                            className="text-xl"
-                        >
-                            <MdFormatListBulleted />
-                        </button>
-                        <button
-                            onClick={() => handleFormat('insertorderedlist')}
-                            className="text-xl"
-                        >
-                            <MdFormatListNumbered />
-                        </button>
-                    </div> */}
+
                     {/* Show the generated letter */}
                     <ReactQuill
                         theme="snow"
