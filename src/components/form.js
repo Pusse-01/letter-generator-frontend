@@ -140,7 +140,7 @@ const Form = ({ setLetter }) => {
                             {isLoading && <CircularProgress />}
                         </div>
                         <DialogContentText>
-                            ChatGPT is in work...
+                            CompFix is in work...
                         </DialogContentText>
                     </DialogContent>
                 </Dialog>
