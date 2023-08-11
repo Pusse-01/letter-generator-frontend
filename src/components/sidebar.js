@@ -207,7 +207,7 @@ export default function MiniDrawer({ onLogout }) {
                         {/* </ListItem> */}
 
                         {/* <ListItem key="Files" disablePadding sx={{ display: 'block' }}> */}
-                        <CustomListItem
+                        {/* <CustomListItem
                             onClick={() => navigate("/docs")}
                             selected={currentPath === "/docs"} // Check if the item is selected based on the current URL
                         >
@@ -215,7 +215,7 @@ export default function MiniDrawer({ onLogout }) {
                                 <LibraryBooksIcon />
                             </CustomListItemIcon>
                             <ListItemText primary="Docs" sx={{ opacity: open ? 1 : 0 }} />
-                        </CustomListItem>
+                        </CustomListItem> */}
 
                         {/* Repeat the same pattern for other pages */}
                     </List>
