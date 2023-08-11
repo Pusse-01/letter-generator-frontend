@@ -7,7 +7,7 @@ const Login = ({ handleLogin }) => {
                 <div className="m-auto text-center">
                     {/* <img className="m-auto" src={searchingSVG} /> */}
                     <h1 className="text-white font-bold text-4xl my-8">
-                        complaintfix
+                        ComplaintFix
                     </h1>
                     <p className="text-[#8BA3F8]">
                         Powered by Synacal

@@ -29,11 +29,6 @@ const SignupForm = ({ handleLogin }) => {
                 name: name,
                 username: username,
                 password: password,
-            }).then((response) => {
-                if (!response.ok) {
-                    throw new Error('Invalid credentials');
-                }
-                return response.json();
             })
                 .then((data) => {
                     localStorage.setItem('user', JSON.stringify(data.user));
