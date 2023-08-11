@@ -1,7 +1,8 @@
 import React from 'react'
 import Card from '../components/menuCard';
-
+import { getUserDataFromLocalStorage } from '../utils'
 function Home() {
+    const user = getUserDataFromLocalStorage();
     const cards = [
         {
             title: 'Formal Letter',
@@ -20,6 +21,7 @@ function Home() {
         //     description: 'Description for Card 4.',
         // },
     ];
+    console.log(user)
     return (
         <div>
             <div className="flex flex-wrap justify-start ml-20">

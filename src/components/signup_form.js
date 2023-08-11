@@ -7,6 +7,8 @@ const SignupForm = ({ handleLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('')
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -20,26 +22,60 @@ const SignupForm = ({ handleLogin }) => {
         setPassword(event.target.value);
     };
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
+    // const handleFormSubmit = async (event) => {
+    //     event.preventDefault();
 
-        try {
-            // Send a POST request to the signup endpoint
-            await axios.post(`${API_BASE_URL}/signup/`, {
+    //     try {
+    //         // Send a POST request to the signup endpoint
+    //         await axios.post(`${API_BASE_URL}/signup/`, {
+    //             name: name,
+    //             username: username,
+    //             password: password,
+    //         })
+    //             .then((data) => {
+    //                 localStorage.setItem('user', JSON.stringify(data.user));
+    //                 // Login successful, handle the response data (e.g., save the token, update state, etc.)
+    //                 handleLogin();
+    //             })
+    //     } catch (error) {
+    //         // Handle signup error (e.g., display error message)
+    //         console.error('Signup failed:', error);
+    //     }
+    // };
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        setIsLoading(true);
+
+        fetch(`${API_BASE_URL}/signup/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
                 name: name,
                 username: username,
                 password: password,
+            }),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Invalid credentials');
+                }
+                return response.json();
             })
-                .then((data) => {
-                    localStorage.setItem('user', JSON.stringify(data.user));
-                    // Login successful, handle the response data (e.g., save the token, update state, etc.)
-                    handleLogin();
-                })
-        } catch (error) {
-            // Handle signup error (e.g., display error message)
-            console.error('Signup failed:', error);
-        }
+            .then((data) => {
+                localStorage.setItem('user', JSON.stringify(data.user));
+                // Login successful, handle the response data (e.g., save the token, update state, etc.)
+                handleLogin();
+            })
+            .catch((error) => {
+                console.error(error.message);
+                // Handle login error (e.g., display error message)
+            }).finally(() => {
+                setIsLoading(false); // Stop loading spinner
+            });
     };
+
 
     return (
         <div>
