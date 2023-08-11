@@ -25,15 +25,21 @@ const SignupForm = ({ handleLogin }) => {
 
         try {
             // Send a POST request to the signup endpoint
-            const response = await axios.post(`${API_BASE_URL}/signup/`, {
+            await axios.post(`${API_BASE_URL}/signup/`, {
                 name: name,
                 username: username,
                 password: password,
-            });
-
-            // Handle successful signup
-            console.log('Signup successful:', response.data);
-            handleLogin(); // Call the onLogin function passed as a prop
+            }).then((response) => {
+                if (!response.ok) {
+                    throw new Error('Invalid credentials');
+                }
+                return response.json();
+            })
+                .then((data) => {
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    // Login successful, handle the response data (e.g., save the token, update state, etc.)
+                    handleLogin();
+                })
         } catch (error) {
             // Handle signup error (e.g., display error message)
             console.error('Signup failed:', error);

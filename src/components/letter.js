@@ -6,17 +6,17 @@ import { getUserDataFromLocalStorage } from '../utils'
 import API_BASE_URL from '../config';
 import { MdFormatBold, MdFormatItalic, MdFormatListBulleted, MdFormatListNumbered } from 'react-icons/md';
 
-const Letter = ({ letter }) => {
+const Letter = ({ letter, name }) => {
     const user = getUserDataFromLocalStorage();
     const [statusMessage, setStatusMessage] = useState('');
     const [text, setText] = useState(letter)
-    console.log(text)
+
     useEffect(() => {
         setText(letter);
         console.log(letter);
         console.log(text)
     }, [letter]);
-
+    console.log(name)
     const handleFormat = (format) => {
         document.execCommand(format, false, null);
     };
@@ -64,6 +64,7 @@ const Letter = ({ letter }) => {
                 },
                 body: JSON.stringify({
                     user_id: userId,
+                    name: name,
                     letter: text,
                 }),
             });

@@ -4,7 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
 import API_BASE_URL from '../config';
 
-const Form = ({ setLetter }) => {
+const Form = ({ setLetter, name, setName }) => {
     const [dialogOpen, setDialogOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [dialogMessage, setDialogMessage] = useState('');
@@ -14,6 +14,7 @@ const Form = ({ setLetter }) => {
         historical_data: '',
         follow_up_date: '',
     });
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -28,6 +29,7 @@ const Form = ({ setLetter }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setName(formData.case_reference)
         setIsLoading(true);
         setDialogOpen(true);
         try {
@@ -87,7 +89,7 @@ const Form = ({ setLetter }) => {
                         <Grid container spacing={2} alignItems="flex-start">
                             <Grid item xs={12}>
                                 <TextField
-                                    label="Case reference"
+                                    label="Surname, Case reference"
                                     name="case_reference"
                                     value={formData.case_reference}
                                     onChange={handleInputChange}
@@ -119,7 +121,7 @@ const Form = ({ setLetter }) => {
                             </Grid>
                             <Grid item xs={12}>
                                 <DatePicker
-                                    label="Follow up date"
+                                    label="Date Received"
                                     value={formData.follow_up_date}
                                     onChange={handleDateChange}
                                     fullWidth

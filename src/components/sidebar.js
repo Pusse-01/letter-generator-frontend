@@ -29,8 +29,9 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 // import avatar from '../assets/avatar.png'
-// import logo from '../assets/logo.png'
+
 
 const drawerWidth = 240;
 const selectedColor = '#1250B9'; // Replace this with your desired blue color
@@ -207,15 +208,15 @@ export default function MiniDrawer({ onLogout }) {
                         {/* </ListItem> */}
 
                         {/* <ListItem key="Files" disablePadding sx={{ display: 'block' }}> */}
-                        {/* <CustomListItem
-                            onClick={() => navigate("/docs")}
-                            selected={currentPath === "/docs"} // Check if the item is selected based on the current URL
+                        <CustomListItem
+                            onClick={() => navigate("/letters")}
+                            selected={currentPath === "/letters"} // Check if the item is selected based on the current URL
                         >
-                            <CustomListItemIcon selected={currentPath === "/docs"}>
-                                <LibraryBooksIcon />
+                            <CustomListItemIcon selected={currentPath === "/letters"}>
+                                <Inventory2OutlinedIcon />
                             </CustomListItemIcon>
-                            <ListItemText primary="Docs" sx={{ opacity: open ? 1 : 0 }} />
-                        </CustomListItem> */}
+                            <ListItemText primary="Letters" sx={{ opacity: open ? 1 : 0 }} />
+                        </CustomListItem>
 
                         {/* Repeat the same pattern for other pages */}
                     </List>

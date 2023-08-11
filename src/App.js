@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Docs from './screens/docs';
 import MiniDrawer from './components/sidebar';
+import LetterCard from './components/letter_cards';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -55,7 +56,8 @@ function App() {
             <div className="h-screen">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/docs" element={<Docs />} />
+                <Route path="/generate_letter" element={<Docs />} />
+                <Route path="/letters" element={<LetterCard />} />
               </Routes>
             </div>
           </>
