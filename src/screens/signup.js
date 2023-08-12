@@ -10,7 +10,7 @@ const Signup = ({ handleLogin }) => {
                         ComplaintFix
                     </h1>
                     <p className="text-[#8BA3F8]">
-                        Powered by Synacal
+                        At The Speed of Thought
                     </p>
                 </div>
             </div>

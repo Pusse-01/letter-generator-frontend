@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Card = ({ title, description }) => {
     return (
-        <Link to="/generate_letter" className="w-64 mx-2 my-4 cursor-pointer">
+        <Link to="/formal_complaints" className="w-64 mx-2 my-4 cursor-pointer">
             <MUICard className="flex items-center p-4 border border-gray-300 rounded-md shadow-md hover:bg-gray-100">
                 <div className="flex-grow pr-4 text-left">
                     <Typography variant="h6">{title}</Typography>

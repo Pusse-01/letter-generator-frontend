@@ -99,7 +99,7 @@ const Form = ({ setLetter, name, setName }) => {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
-                                    label="Information Verbatim"
+                                    label="Complaint"
                                     name="information_verbatim"
                                     value={formData.information_verbatim}
                                     onChange={handleInputChange}
@@ -110,7 +110,7 @@ const Form = ({ setLetter, name, setName }) => {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
-                                    label="Historical data & solution"
+                                    label="Investigation & Resolution"
                                     name="historical_data"
                                     value={formData.historical_data}
                                     onChange={handleInputChange}

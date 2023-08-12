@@ -5,7 +5,7 @@ function Home() {
     const user = getUserDataFromLocalStorage();
     const cards = [
         {
-            title: 'Formal Letter',
+            title: 'Formal Complaints',
             description: 'Generate Formal Letters.',
         },
         // {

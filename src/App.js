@@ -56,7 +56,7 @@ function App() {
             <div className="h-screen">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/generate_letter" element={<Docs />} />
+                <Route path="/formal_complaints" element={<Docs />} />
                 <Route path="/letters" element={<LetterCard />} />
               </Routes>
             </div>
