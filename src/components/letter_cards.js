@@ -51,12 +51,13 @@ const LetterCard = () => {
                     </CardContent>
                 </Card>
             ))}
-            <Dialog open={selectedLetter !== null} onClose={handleCloseDialog} maxWidth="md">
+            <Dialog open={selectedLetter !== null} onClose={handleCloseDialog} fullWidth={true}
+                maxWidth={'md'}>
                 <DialogContent>
                     {selectedLetter && <Letter letter={selectedLetter.generated_letter} name={selectedLetter.name} />}
 
                     {/* <Typography variant="body1">{selectedLetter?.generated_letter}</Typography> */}
-                    <Button onClick={handleCloseDialog}>Close</Button>
+                    {/* <Button onClick={handleCloseDialog}>Close</Button> */}
                 </DialogContent>
             </Dialog>
         </div>

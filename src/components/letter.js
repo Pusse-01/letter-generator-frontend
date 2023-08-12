@@ -92,13 +92,19 @@ const Letter = ({ letter, name }) => {
                 <div>
 
                     {/* Show the generated letter */}
-                    <ReactQuill
+                    {/* <ReactQuill
                         theme="snow"
                         modules={modules}
                         formats={formats}
                         value={text}
                         onChange={handleProcedureContentChange}
                         style={{ height: '70VH' }}
+                    /> */}
+                    <textarea
+                        className="border rounded w-full h-64 p-2"
+                        readOnly
+                        value={letter}
+                        style={{ minHeight: '75vh' }}
                     />
                     <div className="flex justify-end space-x-2 mt-12">
                         <button
